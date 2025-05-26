@@ -48,16 +48,21 @@ namespace MinecraftMobs_Aplicacion
 
             SqliteCommand comando = new SqliteCommand();
             string tipo;
+            string imagenPasivo;
+            string imagenHostil;
+            if (pictureBox1.Image == null) { imagenPasivo = "-"; } else { imagenPasivo = pictureBox1.Image.ToString(); }
+            if (pictureBox2.Image == null) { imagenHostil = "-"; } else { imagenHostil = pictureBox2.Image.ToString(); }
+
             if (rdbPasivo.Checked)
             {
-                comando = new SqliteCommand($"INSERT INTO Mobs (Nombre, PuntosDeSalud, Tipo, Spawn, ItemSoltado, Daño, TipoDeAtaque, Apariencia) " +
-                    $"VALUES ('{txtNombre.Text}', '{nudVida.Value}', 'Pasivo', '{txtSpawn.Text}', '{txtDrop.Text}', '', '', '{pictureBox1.Image}')", conexion); //consulta
+                MobsPasivos nuevoMob = new MobsPasivos();
+                nuevoMob.AgregarPasivoBaseDeDatos(txtNombre.Text, ((int)nudVida.Value), txtSpawn.Text, txtDrop.Text, imagenPasivo);
             }
             else
             {
                 if (rdbHostil.Checked) { tipo = "Hostil"; } else { tipo = "Neutral"; }
-                comando = new SqliteCommand($"INSERT INTO Mobs (Nombre, PuntosDeSalud, Tipo, Spawn, ItemSoltado, Daño, TipoDeAtaque, Apariencia) " +
-                    $"VALUES ('{txtNombreHostil.Text}', '{nudVidaHostil.Value}', '{tipo}', '{txtSpawnHostil.Text}', '{txtDropHostil.Text}', '{nudDaño.Value}', '{cmbAtaque.Text}', '{pictureBox2.Image}')", conexion); //consulta
+                MobsActivos nuevoMob = new MobsActivos(((int)nudDaño.Value), cmbAtaque.Text, tipo);
+                nuevoMob.AgregarActivoBaseDeDatos(txtNombreHostil.Text, ((int)nudVidaHostil.Value), tipo, txtSpawnHostil.Text, txtDropHostil.Text, ((int)nudDaño.Value), cmbAtaque.Text, imagenHostil);
 
             }
             comando.ExecuteNonQuery();
