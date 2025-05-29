@@ -44,8 +44,8 @@ namespace MinecraftMobs_Aplicacion
             string tipo;
             string imagenPasivo;
             string imagenHostil;
-            if (pictureBox1.Image == null) { imagenPasivo = "-"; } else { imagenPasivo = pictureBox1.Image.ToString(); }
-            if (pictureBox2.Image == null) { imagenHostil = "-"; } else { imagenHostil = pictureBox2.Image.ToString(); }
+            if (this.imagenPasivo.Image == null) { imagenPasivo = "-"; } else { imagenPasivo = this.imagenPasivo.Image.ToString(); }
+            if (this.imagenHostil.Image == null) { imagenHostil = "-"; } else { imagenHostil = this.imagenHostil.Image.ToString(); }
 
             if (rdbPasivo.Checked)
             {
@@ -75,8 +75,9 @@ namespace MinecraftMobs_Aplicacion
             this.Hide();
             formularioMain.Show(); //Abre el frmMain
         }
-
-        private void button1_Click(object sender, EventArgs e)
+        
+        //Agregar imagen en mob pasivo
+        private void agImgPasivo_Click(object sender, EventArgs e)
         {
             OpenFileDialog lectorDeArchivos = new OpenFileDialog();
             lectorDeArchivos.FileName = "Seleccione la imagen";
@@ -87,10 +88,27 @@ namespace MinecraftMobs_Aplicacion
                 string camino = lectorDeArchivos.FileName;
                 if (camino == "Seleccione la imagen" || camino == "")
                     return;
-                if (rdbPasivo.Checked) { pictureBox1.Image = Image.FromFile(camino); }
-                else { pictureBox2.Image = Image.FromFile(camino); }
+                imagenPasivo.Image = Image.FromFile(camino);
             }
         }
+
+        //Agregar imagen en mob neutral y hostil 
+        private void agImgHostil_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog lectorDeArchivos = new OpenFileDialog();
+            lectorDeArchivos.FileName = "Seleccione la imagen";
+            lectorDeArchivos.Filter = "Archivo jpg (*.jpg)|*jpg";
+            lectorDeArchivos.Title = "Abrir camino a imagen";
+            if (lectorDeArchivos.ShowDialog() == DialogResult.OK)
+            {
+                string camino = lectorDeArchivos.FileName;
+                if (camino == "Seleccione la imagen" || camino == "")
+                    return;
+                 imagenHostil.Image = Image.FromFile(camino);
+            }
+
+        }
+
 
         //SUGERENCIA DE COPILOT
         private void LimpiarControles(Control control)
@@ -129,5 +147,6 @@ namespace MinecraftMobs_Aplicacion
         {
             LimpiarControles(this); //Limpia los controles al activar el formulario
         }
+
     }
 }
