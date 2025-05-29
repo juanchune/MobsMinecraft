@@ -28,18 +28,10 @@ namespace MinecraftMobs_Aplicacion
         }
         public int Danio { get { return daño; } set { daño = value; } } //obtiene todos los valores
         public string TipoDeAtaque { get { return tipoDeAtaque; } set { tipoDeAtaque = value; } }    //de los atributos propios y los asigna
+        public string Tipo { get { return tipoActivo; } set { tipoActivo = value; } }
 
-        public void AgregarActivoBaseDeDatos(string nom, int salud, string tipo, string spawn, string drop, int danio, string ataque, string imagen)
+        public void AgregarActivoBaseDeDatos()
         {
-            string nombreMob = nom;
-            int puntosDeSaludMob = salud;
-            string biomaSpawn = spawn;
-            string itemSoltadoMob = drop;
-            int dañoMob = danio;
-            string tipoAtaque = ataque;
-            string aparienciaMob = imagen;
-            string tipoMobActivo = tipo;
-
             string strDeConexion = "Data Source = Minecraft.sqlite";
             SqliteConnection conexion = new SqliteConnection(strDeConexion);   //puntero
 
@@ -47,7 +39,7 @@ namespace MinecraftMobs_Aplicacion
 
             SqliteCommand comando = new SqliteCommand();
             comando = new SqliteCommand($"INSERT INTO Mobs (Nombre, PuntosDeSalud, Tipo, Spawn, ItemSoltado, Daño, TipoDeAtaque, Apariencia) " +
-            $"VALUES ('{nombreMob}', '{puntosDeSaludMob}', '{tipoMobActivo}', '{biomaSpawn}', '{itemSoltadoMob}', '{dañoMob}', '{tipoAtaque}', '{aparienciaMob}')", conexion); //consulta
+            $"VALUES ('{nombre}', '{puntosDeSalud}', '{tipoActivo}', '{spawn}', '{itemSoltado}', '{daño}', '{tipoDeAtaque}', '{apariencia}')", conexion); //consulta
 
             comando.ExecuteNonQuery();
             conexion.Close();

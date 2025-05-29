@@ -5,26 +5,27 @@ namespace MinecraftMobs_Aplicacion
     public partial class frmMain : Form
     {
         frmAgregar formAgregar; //Atributo para una instancia de frmAgregar
+        public List<MobsPasivos> listaMobs = new List<MobsPasivos>();
         public frmMain()
         {
             InitializeComponent();
             formAgregar = new frmAgregar(this); //Crea el formulario si no esta creado. El NEW asigna un especio en memoria
         }
-
+        public void ActualizarComboBox()
+        {
+            if (listaMobs.Count <= 0)
+            {
+                return; //si la lista esta vacia, no hace nada
+            }
+            cmbMob.Items.Clear();
+            foreach (MobsPasivos mob in listaMobs)
+            {
+                cmbMob.Items.Add(mob.Nombre); //Agrega los nombres de los mobs a la lista desplegable
+            }
+        }
         private void frmMain_Activated(object sender, EventArgs e)
         {
-            string strDeConexion = "Data Source = Minecraft.sqlite";
-            SqliteConnection conexion = new SqliteConnection(strDeConexion);   //puntero
-
-            conexion.Open();
-
-            SqliteCommand comando = new SqliteCommand("SELECT * FROM Mobs", conexion);
-            SqliteDataReader lector = comando.ExecuteReader(); //toma el comando anterior y lo convierte en legible para c#
-
-            while (lector.Read()) //el lector para muchas filas para cuando encuentra NULL, por eso es viable con while
-            {
-                cmbMob.Items.Add(lector["Nombre"].ToString());
-            }
+            ActualizarComboBox(); //Actualiza el combobox al activar el formulario
         }
 
         private void btnAgregar_Click(object sender, EventArgs e)

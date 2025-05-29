@@ -8,8 +8,9 @@ using System.Windows.Forms;
 
 namespace MinecraftMobs_Aplicacion
 {
-    internal class MobsPasivos
+    public class MobsPasivos
     {
+        protected int id;
         protected string nombre;
         protected int puntosDeSalud;
         protected string spawn;  //creamos los atributos
@@ -27,19 +28,14 @@ namespace MinecraftMobs_Aplicacion
                 nombre = value;
             }
         }
+        public int Id { get { return id; } set { id = value; } }
         public int PuntosDeSalud { get { return puntosDeSalud; } set { puntosDeSalud = value; } }  //lo mismo en todos los demas atributos
         public string Spawn { get { return spawn; } set { spawn = value; } }
         public string ItemSoltado { get { return itemSoltado; } set { itemSoltado = value; } }
         public string Apariencia { get { return apariencia; } set { apariencia = value; } }
 
-        public void AgregarPasivoBaseDeDatos(string nom, int salud, string spawn, string drop, string imagen)
+        public void AgregarPasivoBaseDeDatos()
         {
-            string nombreMob = nom;
-            int puntosDeSaludMob = salud;
-            string biomaSpawn = spawn;
-            string itemSoltadoMob = drop;
-            string aparienciaMob = imagen;
-
             string strDeConexion = "Data Source = Minecraft.sqlite";
             SqliteConnection conexion = new SqliteConnection(strDeConexion);   //puntero
 
@@ -47,7 +43,7 @@ namespace MinecraftMobs_Aplicacion
 
             SqliteCommand comando = new SqliteCommand();
             comando = new SqliteCommand($"INSERT INTO Mobs (Nombre, PuntosDeSalud, Tipo, Spawn, ItemSoltado, Daño, TipoDeAtaque, Apariencia) " +
-            $"VALUES ('{nombreMob}', '{puntosDeSaludMob}', 'Pasivo', '{biomaSpawn}', '{itemSoltadoMob}', '', '', '{aparienciaMob}')", conexion); //consulta
+            $"VALUES ('{nombre}', '{puntosDeSalud}', 'Pasivo', '{spawn}', '{itemSoltado}', '', '', '{apariencia}')", conexion); //consulta
             comando.ExecuteNonQuery();
             conexion.Close();
         }

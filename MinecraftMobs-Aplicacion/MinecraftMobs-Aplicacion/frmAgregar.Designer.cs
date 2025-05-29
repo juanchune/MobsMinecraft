@@ -301,11 +301,9 @@
             // 
             nudDaño.Location = new Point(9, 287);
             nudDaño.Margin = new Padding(2);
-            nudDaño.Minimum = new decimal(new int[] { 2, 0, 0, 0 });
             nudDaño.Name = "nudDaño";
             nudDaño.Size = new Size(318, 27);
             nudDaño.TabIndex = 14;
-            nudDaño.Value = new decimal(new int[] { 2, 0, 0, 0 });
             // 
             // lblAtaque
             // 
@@ -467,6 +465,7 @@
             Margin = new Padding(2);
             Name = "frmAgregar";
             Text = "Agregar";
+            Activated += frmAgregar_Activated;
             FormClosing += frmAgregar_FormClosing;
             grbTipo.ResumeLayout(false);
             grbTipo.PerformLayout();

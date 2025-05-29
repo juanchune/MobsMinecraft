@@ -41,12 +41,6 @@ namespace MinecraftMobs_Aplicacion
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-            string strDeConexion = "Data Source = Minecraft.sqlite";
-            SqliteConnection conexion = new SqliteConnection(strDeConexion);   //puntero
-
-            conexion.Open();
-
-            SqliteCommand comando = new SqliteCommand();
             string tipo;
             string imagenPasivo;
             string imagenHostil;
@@ -56,17 +50,28 @@ namespace MinecraftMobs_Aplicacion
             if (rdbPasivo.Checked)
             {
                 MobsPasivos nuevoMob = new MobsPasivos();
-                nuevoMob.AgregarPasivoBaseDeDatos(txtNombre.Text, ((int)nudVida.Value), txtSpawn.Text, txtDrop.Text, imagenPasivo);
+                nuevoMob.Nombre = txtNombre.Text;
+                nuevoMob.PuntosDeSalud = (int)nudVida.Value;
+                nuevoMob.Spawn = txtSpawn.Text;
+                nuevoMob.ItemSoltado = txtDrop.Text;
+                nuevoMob.Apariencia = imagenPasivo; //Asignamos la imagen del pasivo
+
+                nuevoMob.AgregarPasivoBaseDeDatos();
             }
             else
             {
                 if (rdbHostil.Checked) { tipo = "Hostil"; } else { tipo = "Neutral"; }
-                MobsActivos nuevoMob = new MobsActivos(((int)nudDaño.Value), cmbAtaque.Text, tipo);
-                nuevoMob.AgregarActivoBaseDeDatos(txtNombreHostil.Text, ((int)nudVidaHostil.Value), tipo, txtSpawnHostil.Text, txtDropHostil.Text, ((int)nudDaño.Value), cmbAtaque.Text, imagenHostil);
+                MobsActivos nuevoMob = new MobsActivos((int)nudDaño.Value, cmbAtaque.Text, tipo);
+                nuevoMob.Nombre = txtNombreHostil.Text;
+                nuevoMob.PuntosDeSalud = (int)nudVidaHostil.Value;
+                nuevoMob.Spawn = txtSpawnHostil.Text;
+                nuevoMob.ItemSoltado = txtDropHostil.Text;
+                nuevoMob.Apariencia = imagenHostil; //Asignamos la imagen del hostil
+
+                nuevoMob.AgregarActivoBaseDeDatos();
+                formularioMain.listaMobs.Add(nuevoMob); //Agrega el nuevo mob a la lista de mobs en frmMain
 
             }
-            comando.ExecuteNonQuery();
-            conexion.Close();
             this.Hide();
             formularioMain.Show(); //Abre el frmMain
         }
@@ -118,6 +123,11 @@ namespace MinecraftMobs_Aplicacion
         private void frmAgregar_FormClosing(object sender, FormClosingEventArgs e)
         {
             e.Cancel = true; //Evita que el formulario se cierre
+        }
+
+        private void frmAgregar_Activated(object sender, EventArgs e)
+        {
+            LimpiarControles(this); //Limpia los controles al activar el formulario
         }
     }
 }
