@@ -50,7 +50,7 @@ namespace MinecraftMobs_Aplicacion
                 nuevoMob.PuntosDeSalud = (int)nudVida.Value;
                 nuevoMob.Spawn = txtSpawn.Text;
                 nuevoMob.ItemSoltado = txtDrop.Text;
-                nuevoMob.Apariencia = lblRutaImgPasivo.Text; //Asignamos la imagen del pasivo
+                nuevoMob.Apariencia = txtRutaPasivo.Text; //Asignamos la imagen del pasivo
 
                 nuevoMob.AgregarPasivoBaseDeDatos();
                 formularioMain.listaMobs.Add(nuevoMob); //Agrega el nuevo mob a la lista de mobs en frmMain
@@ -63,7 +63,7 @@ namespace MinecraftMobs_Aplicacion
                 nuevoMob.PuntosDeSalud = (int)nudVidaHostil.Value;
                 nuevoMob.Spawn = txtSpawnHostil.Text;
                 nuevoMob.ItemSoltado = txtDropHostil.Text;
-                nuevoMob.Apariencia = lblRutaImgHostil.Text; //Asignamos la imagen del hostil
+                nuevoMob.Apariencia = txtRutaHostil.Text; //Asignamos la imagen del hostil
 
                 nuevoMob.AgregarActivoBaseDeDatos();
                 formularioMain.listaMobs.Add(nuevoMob); //Agrega el nuevo mob a la lista de mobs en frmMain
@@ -86,7 +86,7 @@ namespace MinecraftMobs_Aplicacion
                 if (camino == "Seleccione la imagen" || camino == "")
                     return;
                 imagenPasivo.Image = Image.FromFile(camino);
-                lblRutaImgPasivo.Text = camino; //Asigna la ruta de la imagen seleccionada
+                txtRutaPasivo.Text = camino; //Asigna la ruta de la imagen seleccionada
             }
         }
 
@@ -103,7 +103,7 @@ namespace MinecraftMobs_Aplicacion
                 if (camino == "Seleccione la imagen" || camino == "")
                     return;
                  imagenHostil.Image = Image.FromFile(camino);
-                lblRutaImgHostil.Text = camino; //Asigna la ruta de la imagen seleccionada
+                txtRutaHostil.Text = camino; //Asigna la ruta de la imagen seleccionada
             }
 
         }

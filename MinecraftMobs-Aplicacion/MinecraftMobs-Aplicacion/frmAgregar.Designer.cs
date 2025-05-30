@@ -36,11 +36,10 @@
             rdbPasivo = new RadioButton();
             backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             grbPasivo = new GroupBox();
-            lblRutaImgPasivo = new Label();
             imagenPasivo = new PictureBox();
             agImgPasivo = new Button();
             label1 = new Label();
-            txtUrlPasivo = new TextBox();
+            txtRutaPasivo = new TextBox();
             nudVida = new NumericUpDown();
             txtSpawn = new TextBox();
             txtDrop = new TextBox();
@@ -50,9 +49,8 @@
             lblVida = new Label();
             lblNombre = new Label();
             grbHostil = new GroupBox();
-            lblRutaImgHostil = new Label();
             agImgHostil = new Button();
-            txtUrlHostil = new TextBox();
+            txtRutaHostil = new TextBox();
             cmbAtaque = new ComboBox();
             nudDaño = new NumericUpDown();
             lblAtaque = new Label();
@@ -154,11 +152,10 @@
             // 
             // grbPasivo
             // 
-            grbPasivo.Controls.Add(lblRutaImgPasivo);
             grbPasivo.Controls.Add(imagenPasivo);
             grbPasivo.Controls.Add(agImgPasivo);
             grbPasivo.Controls.Add(label1);
-            grbPasivo.Controls.Add(txtUrlPasivo);
+            grbPasivo.Controls.Add(txtRutaPasivo);
             grbPasivo.Controls.Add(nudVida);
             grbPasivo.Controls.Add(txtSpawn);
             grbPasivo.Controls.Add(txtDrop);
@@ -174,16 +171,6 @@
             grbPasivo.Size = new Size(339, 518);
             grbPasivo.TabIndex = 4;
             grbPasivo.TabStop = false;
-            // 
-            // lblRutaImgPasivo
-            // 
-            lblRutaImgPasivo.AutoSize = true;
-            lblRutaImgPasivo.Location = new Point(85, 373);
-            lblRutaImgPasivo.Name = "lblRutaImgPasivo";
-            lblRutaImgPasivo.Size = new Size(50, 20);
-            lblRutaImgPasivo.TabIndex = 13;
-            lblRutaImgPasivo.Text = "label7";
-            lblRutaImgPasivo.Visible = false;
             // 
             // imagenPasivo
             // 
@@ -216,13 +203,13 @@
             label1.TabIndex = 8;
             label1.Text = "Imagen";
             // 
-            // txtUrlPasivo
+            // txtRutaPasivo
             // 
-            txtUrlPasivo.Location = new Point(10, 473);
-            txtUrlPasivo.Margin = new Padding(2);
-            txtUrlPasivo.Name = "txtUrlPasivo";
-            txtUrlPasivo.Size = new Size(310, 27);
-            txtUrlPasivo.TabIndex = 11;
+            txtRutaPasivo.Location = new Point(10, 473);
+            txtRutaPasivo.Margin = new Padding(2);
+            txtRutaPasivo.Name = "txtRutaPasivo";
+            txtRutaPasivo.Size = new Size(310, 27);
+            txtRutaPasivo.TabIndex = 11;
             // 
             // nudVida
             // 
@@ -300,9 +287,8 @@
             // 
             // grbHostil
             // 
-            grbHostil.Controls.Add(lblRutaImgHostil);
             grbHostil.Controls.Add(agImgHostil);
-            grbHostil.Controls.Add(txtUrlHostil);
+            grbHostil.Controls.Add(txtRutaHostil);
             grbHostil.Controls.Add(cmbAtaque);
             grbHostil.Controls.Add(nudDaño);
             grbHostil.Controls.Add(lblAtaque);
@@ -326,16 +312,6 @@
             grbHostil.TabStop = false;
             grbHostil.Visible = false;
             // 
-            // lblRutaImgHostil
-            // 
-            lblRutaImgHostil.AutoSize = true;
-            lblRutaImgHostil.Location = new Point(70, 457);
-            lblRutaImgHostil.Name = "lblRutaImgHostil";
-            lblRutaImgHostil.Size = new Size(50, 20);
-            lblRutaImgHostil.TabIndex = 14;
-            lblRutaImgHostil.Text = "label7";
-            lblRutaImgHostil.Visible = false;
-            // 
             // agImgHostil
             // 
             agImgHostil.Location = new Point(288, 600);
@@ -347,13 +323,13 @@
             agImgHostil.UseVisualStyleBackColor = true;
             agImgHostil.Click += agImgHostil_Click;
             // 
-            // txtUrlHostil
+            // txtRutaHostil
             // 
-            txtUrlHostil.Location = new Point(10, 600);
-            txtUrlHostil.Margin = new Padding(2);
-            txtUrlHostil.Name = "txtUrlHostil";
-            txtUrlHostil.Size = new Size(310, 27);
-            txtUrlHostil.TabIndex = 16;
+            txtRutaHostil.Location = new Point(10, 600);
+            txtRutaHostil.Margin = new Padding(2);
+            txtRutaHostil.Name = "txtRutaHostil";
+            txtRutaHostil.Size = new Size(310, 27);
+            txtRutaHostil.TabIndex = 16;
             // 
             // cmbAtaque
             // 
@@ -502,7 +478,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(818, 659);
+            ClientSize = new Size(818, 857);
             Controls.Add(btnCancelar);
             Controls.Add(grbHostil);
             Controls.Add(grbPasivo);
@@ -560,7 +536,7 @@
         private Label lblDrop;
         private Label lblVida;
         private Label lblNombre;
-        private TextBox txtUrlPasivo;
+        private TextBox txtRutaPasivo;
         private Button agImgPasivo;
         private NumericUpDown nudDaño;
         private Label lblAtaque;
@@ -568,8 +544,6 @@
         private ComboBox cmbAtaque;
         private Button btnCancelar;
         private Button agImgHostil;
-        private TextBox txtUrlHostil;
-        private Label lblRutaImgPasivo;
-        private Label lblRutaImgHostil;
+        private TextBox txtRutaHostil;
     }
 }

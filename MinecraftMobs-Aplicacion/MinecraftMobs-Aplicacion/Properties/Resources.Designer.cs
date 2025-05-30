@@ -59,5 +59,15 @@ namespace MinecraftMobs_Aplicacion.Properties {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap IMG_20250219_WA0059 {
+            get {
+                object obj = ResourceManager.GetObject("IMG-20250219-WA0059", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }
