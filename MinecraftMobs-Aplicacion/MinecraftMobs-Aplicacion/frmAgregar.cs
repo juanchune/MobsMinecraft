@@ -35,17 +35,13 @@ namespace MinecraftMobs_Aplicacion
 
         private void rdbHostil_Click(object sender, EventArgs e) //Funcion para cuando el radio de hostiles esta activo
         {
-            grbHostil.Visible = true;   //Se hace visible los datos de los hostiles
+            grbHostil.Visible = true;  //Se hace visible los datos de los hostiles
             grbPasivo.Visible = false; //Se oculta los datos de los pasivos
         }
 
         private void btnAgregar_Click(object sender, EventArgs e)
         {
             string tipo;
-            string imagenPasivo;
-            string imagenHostil;
-            if (this.imagenPasivo.Image == null) { imagenPasivo = "-"; } else { imagenPasivo = this.imagenPasivo.Image.ToString(); }
-            if (this.imagenHostil.Image == null) { imagenHostil = "-"; } else { imagenHostil = this.imagenHostil.Image.ToString(); }
 
             if (rdbPasivo.Checked)
             {
@@ -54,9 +50,10 @@ namespace MinecraftMobs_Aplicacion
                 nuevoMob.PuntosDeSalud = (int)nudVida.Value;
                 nuevoMob.Spawn = txtSpawn.Text;
                 nuevoMob.ItemSoltado = txtDrop.Text;
-                nuevoMob.Apariencia = imagenPasivo; //Asignamos la imagen del pasivo
+                nuevoMob.Apariencia = lblRutaImgPasivo.Text; //Asignamos la imagen del pasivo
 
                 nuevoMob.AgregarPasivoBaseDeDatos();
+                formularioMain.listaMobs.Add(nuevoMob); //Agrega el nuevo mob a la lista de mobs en frmMain
             }
             else
             {
@@ -66,7 +63,7 @@ namespace MinecraftMobs_Aplicacion
                 nuevoMob.PuntosDeSalud = (int)nudVidaHostil.Value;
                 nuevoMob.Spawn = txtSpawnHostil.Text;
                 nuevoMob.ItemSoltado = txtDropHostil.Text;
-                nuevoMob.Apariencia = imagenHostil; //Asignamos la imagen del hostil
+                nuevoMob.Apariencia = lblRutaImgHostil.Text; //Asignamos la imagen del hostil
 
                 nuevoMob.AgregarActivoBaseDeDatos();
                 formularioMain.listaMobs.Add(nuevoMob); //Agrega el nuevo mob a la lista de mobs en frmMain
@@ -89,6 +86,7 @@ namespace MinecraftMobs_Aplicacion
                 if (camino == "Seleccione la imagen" || camino == "")
                     return;
                 imagenPasivo.Image = Image.FromFile(camino);
+                lblRutaImgPasivo.Text = camino; //Asigna la ruta de la imagen seleccionada
             }
         }
 
@@ -105,6 +103,7 @@ namespace MinecraftMobs_Aplicacion
                 if (camino == "Seleccione la imagen" || camino == "")
                     return;
                  imagenHostil.Image = Image.FromFile(camino);
+                lblRutaImgHostil.Text = camino; //Asigna la ruta de la imagen seleccionada
             }
 
         }

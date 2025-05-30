@@ -42,8 +42,8 @@ namespace MinecraftMobs_Aplicacion
             conexion.Open();
 
             SqliteCommand comando = new SqliteCommand();
-            comando = new SqliteCommand($"INSERT INTO Mobs (Nombre, PuntosDeSalud, Tipo, Spawn, ItemSoltado, Daño, TipoDeAtaque, Apariencia) " +
-            $"VALUES ('{nombre}', '{puntosDeSalud}', 'Pasivo', '{spawn}', '{itemSoltado}', '', '', '{apariencia}')", conexion); //consulta
+            comando = new SqliteCommand($"INSERT INTO Mobs (Nombre, PuntosDeSalud, Tipo, Spawn, ItemSoltado, Apariencia) " +
+            $"VALUES ('{nombre}', '{puntosDeSalud}', 'Pasivo', '{spawn}', '{itemSoltado}', '{apariencia}')", conexion); //consulta
             comando.ExecuteNonQuery();
             conexion.Close();
         }
