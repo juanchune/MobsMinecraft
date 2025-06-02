@@ -14,6 +14,12 @@ namespace MinecraftMobs_Aplicacion
     public partial class frmAgregar : Form
     {
         frmMain formularioMain; //Atributo para una instancia de frmMain
+        
+
+        //Verifica si este formulario se esta abriendo para agregar un nuevo mob o modificar uno ya existente
+        public MobsPasivos MobAEditar { get; set; } //Contiene el mob a editar que seleccionamos desde frmMain
+        public bool EsModificacion { get; set; } = false; //Por defecto seleccionamos que es agregar uno nuevo (false)
+
         public frmAgregar(frmMain formulario)
         {
             InitializeComponent();
@@ -72,7 +78,7 @@ namespace MinecraftMobs_Aplicacion
             this.Hide();
             formularioMain.Show(); //Abre el frmMain
         }
-        
+
         //Agregar imagen en mob pasivo
         private void agImgPasivo_Click(object sender, EventArgs e)
         {
@@ -102,7 +108,7 @@ namespace MinecraftMobs_Aplicacion
                 string camino = lectorDeArchivos.FileName;
                 if (camino == "Seleccione la imagen" || camino == "")
                     return;
-                 imagenHostil.Image = Image.FromFile(camino);
+                imagenHostil.Image = Image.FromFile(camino);
                 txtRutaHostil.Text = camino; //Asigna la ruta de la imagen seleccionada
             }
 
@@ -145,6 +151,69 @@ namespace MinecraftMobs_Aplicacion
         private void frmAgregar_Activated(object sender, EventArgs e)
         {
             LimpiarControles(this); //Limpia los controles al activar el formulario
+        }
+
+        private void frmAgregar_Load(object sender, EventArgs e)
+        {
+            if (EsModificacion && MobAEditar != null)
+            {
+                if (MobAEditar is MobsActivos mobActivo)
+                {
+                    // Mostrar solo el grupo de mobs activos
+                    grbHostil.Visible = true;
+                    grbPasivo.Visible = false;
+
+                    // Checkbox según tipo
+                    if (mobActivo.Tipo == "Hostil")
+                    {
+                        rdbHostil.Checked = true;
+                        rdbNeutral.Checked = false;
+                        rdbPasivo.Checked = false;
+                    }
+                    else if (mobActivo.Tipo == "Neutral")
+                    {
+                        rdbNeutral.Checked = true;
+                        rdbHostil.Checked = false;
+                        rdbPasivo.Checked = false;
+                    }
+
+                    // Llenar los controles para mobs activos
+                    txtNombreHostil.Text = mobActivo.Nombre;
+                    nudVidaHostil.Value = mobActivo.PuntosDeSalud;
+                    txtSpawnHostil.Text = mobActivo.Spawn;
+                    txtDropHostil.Text = mobActivo.ItemSoltado;
+                    nudDaño.Value = mobActivo.Danio;
+                    cmbAtaque.Text = mobActivo.TipoDeAtaque;
+
+                    if (File.Exists(mobActivo.Apariencia))
+                        imagenHostil.Image = Image.FromFile(mobActivo.Apariencia);
+                    else
+                        imagenHostil.Image = null;
+                }
+                else if (MobAEditar is MobsPasivos mobPasivo)
+                {
+                    // Mostrar solo el grupo de mobs pasivos
+                    grbPasivo.Visible = true;
+                    grbHostil.Visible = false;
+
+                    rdbPasivo.Checked = true;
+                    rdbHostil.Checked = false;
+                    rdbNeutral.Checked = false;
+
+                    // Llenar los controles para mobs pasivos
+                    txtNombre.Text = mobPasivo.Nombre;
+                    nudVida.Value = mobPasivo.PuntosDeSalud;
+                    txtSpawn.Text = mobPasivo.Spawn;
+                    txtDrop.Text = mobPasivo.ItemSoltado;
+
+                    if (File.Exists(mobPasivo.Apariencia))
+                        imagenPasivo.Image = Image.FromFile(mobPasivo.Apariencia);
+                    else
+                        imagenPasivo.Image = null;
+                }
+
+                btnAgregar.Text = "Modificar"; // Cambia texto botón
+            }
         }
 
     }

@@ -48,18 +48,34 @@ namespace MinecraftMobs_Aplicacion
         }
         public void ActualizarComboBox()
         {
-            if (listaMobs.Count <= 0)
-            {
-                return; //si la lista esta vacia, no hace nada
-            }
+            //if (listaMobs.Count <= 0)
+            //{
+            //    return; //si la lista esta vacia, no hace nada
+            //}
+
             cmbMob.Items.Clear();
+
             foreach (MobsPasivos mob in listaMobs)
             {
-                cmbMob.Items.Add(mob.Nombre); //Agrega los nombres de los mobs a la lista desplegable
+                cmbMob.Items.Add(mob.Nombre);
             }
+
             if (cmbMob.Items.Count > 0)
             {
                 cmbMob.SelectedIndex = 0;
+            }
+            else
+            {
+                cmbMob.Text = ""; // Limpia si no hay mobs
+                lblNombre.Text = "";
+                lblDanio.Text = "";
+                lblAtaque.Text = "";
+                lblTipo.Text = "";
+                lblSpawn.Text = "";
+                lblVida.Text = "";
+                lblDrop.Text = "";
+                grbHostil.Visible = true;
+                picbImagen.Image = null;
             }
         }
         private void frmMain_Activated(object sender, EventArgs e)
@@ -68,7 +84,7 @@ namespace MinecraftMobs_Aplicacion
             {
                 ActualizarListaMobs();
             }
-                ActualizarComboBox(); //Actualiza el combobox al activar el formulario
+            ActualizarComboBox(); //Actualiza el combobox al activar el formulario
         }
 
         private void btnAgregar_Click(object sender, EventArgs e)
@@ -123,8 +139,57 @@ namespace MinecraftMobs_Aplicacion
             lblSpawn.Text = mob.Spawn;
             lblVida.Text = mob.PuntosDeSalud.ToString();
             lblDrop.Text = mob.ItemSoltado.ToString();
+            picbImagen.Image = Image.FromFile(mob.Apariencia);
 
         }
 
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            if (cmbMob.Items.Count == 0)
+            {
+                return;
+            }
+
+            DialogResult resultado = MessageBox.Show( //Muestra un cuadro de texto con dos botones
+            "¿Seguro que quiere eliminar este mob?",
+            "Confirmacion",
+            MessageBoxButtons.YesNo, //Btones
+            MessageBoxIcon.Warning //Icono de advertencia :O
+            );
+
+            if (resultado != DialogResult.Yes) //Comprueba si el resultado es distinto a Si
+            {
+                return;
+            }
+
+            string nomMob = cmbMob.Text;
+
+            string strDeConexion = "Data Source = Minecraft.sqlite";
+            SqliteConnection conexion = new SqliteConnection(strDeConexion);
+            conexion.Open();
+
+            SqliteCommand comando = new SqliteCommand("DELETE FROM Mobs WHERE Nombre = '" + nomMob + "'", conexion);
+            comando.ExecuteNonQuery();
+
+            listaMobs.RemoveAll(m => m.Nombre == nomMob);
+            ActualizarComboBox();
+
+            conexion.Close();
+        }
+
+        private void btnModificar_Click(object sender, EventArgs e)
+        {
+            string nombreSeleccionado = cmbMob.SelectedItem.ToString();
+            MobsPasivos mobSeleccionado = listaMobs.Find(m => m.Nombre == nombreSeleccionado);
+
+            // 4. Abrimos el formulario de modificación
+            formAgregar.EsModificacion = true;
+            formAgregar.MobAEditar = mobSeleccionado;
+            formAgregar.Show(); // No uses ShowDialog porque vos lo ocultás, y ShowDialog lo bloquea
+            this.Hide(); // Ocultás el frmMain
+
+            // 5. Una vez que se cierra, actualizamos el combo y la lista
+            ActualizarComboBox();
+        }
     }
 }
