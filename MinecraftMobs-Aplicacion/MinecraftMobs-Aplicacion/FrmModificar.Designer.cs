@@ -1,6 +1,6 @@
 ﻿namespace MinecraftMobs_Aplicacion
 {
-    partial class frmAgregar
+    partial class FrmModificar
     {
         /// <summary>
         /// Required designer variable.
@@ -28,26 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            lblTitulo = new Label();
-            btnAgregar = new Button();
             grbTipo = new GroupBox();
             rdbHostil = new RadioButton();
             rdbNeutral = new RadioButton();
             rdbPasivo = new RadioButton();
-            backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
-            grbPasivo = new GroupBox();
-            imagenPasivo = new PictureBox();
-            agImgPasivo = new Button();
-            label1 = new Label();
-            txtRutaPasivo = new TextBox();
-            nudVida = new NumericUpDown();
-            txtSpawn = new TextBox();
-            txtDrop = new TextBox();
-            txtNombre = new TextBox();
-            lblSpawn = new Label();
-            lblDrop = new Label();
-            lblVida = new Label();
-            lblNombre = new Label();
+            lblTitulo = new Label();
             grbHostil = new GroupBox();
             agImgHostil = new Button();
             txtRutaHostil = new TextBox();
@@ -65,75 +50,68 @@
             label4 = new Label();
             label5 = new Label();
             label6 = new Label();
-            btnCancelar = new Button();
+            grbPasivo = new GroupBox();
+            imagenPasivo = new PictureBox();
+            agImgPasivo = new Button();
+            label1 = new Label();
+            txtRutaPasivo = new TextBox();
+            nudVida = new NumericUpDown();
+            txtSpawn = new TextBox();
+            txtDrop = new TextBox();
+            txtNombre = new TextBox();
+            lblSpawn = new Label();
+            lblDrop = new Label();
+            lblVida = new Label();
+            lblNombre = new Label();
             grbTipo.SuspendLayout();
-            grbPasivo.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)imagenPasivo).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)nudVida).BeginInit();
             grbHostil.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)nudDaño).BeginInit();
             ((System.ComponentModel.ISupportInitialize)imagenHostil).BeginInit();
             ((System.ComponentModel.ISupportInitialize)nudVidaHostil).BeginInit();
+            grbPasivo.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)imagenPasivo).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)nudVida).BeginInit();
             SuspendLayout();
-            // 
-            // lblTitulo
-            // 
-            lblTitulo.AutoSize = true;
-            lblTitulo.BackColor = Color.Transparent;
-            lblTitulo.Font = new Font("Minecrafter", 25.875F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblTitulo.Location = new Point(252, 32);
-            lblTitulo.Name = "lblTitulo";
-            lblTitulo.Size = new Size(690, 60);
-            lblTitulo.TabIndex = 1;
-            lblTitulo.Text = "Agregar un mob";
-            // 
-            // btnAgregar
-            // 
-            btnAgregar.Location = new Point(611, 1286);
-            btnAgregar.Name = "btnAgregar";
-            btnAgregar.Size = new Size(150, 46);
-            btnAgregar.TabIndex = 2;
-            btnAgregar.Text = "Agregar";
-            btnAgregar.UseVisualStyleBackColor = true;
-            btnAgregar.Click += btnAgregar_Click;
             // 
             // grbTipo
             // 
             grbTipo.Controls.Add(rdbHostil);
             grbTipo.Controls.Add(rdbNeutral);
             grbTipo.Controls.Add(rdbPasivo);
-            grbTipo.Location = new Point(252, 114);
+            grbTipo.Enabled = false;
+            grbTipo.Location = new Point(243, 105);
             grbTipo.Name = "grbTipo";
             grbTipo.Size = new Size(705, 82);
-            grbTipo.TabIndex = 3;
+            grbTipo.TabIndex = 5;
             grbTipo.TabStop = false;
             // 
             // rdbHostil
             // 
             rdbHostil.AutoSize = true;
+            rdbHostil.Enabled = false;
             rdbHostil.Location = new Point(535, 38);
             rdbHostil.Name = "rdbHostil";
             rdbHostil.Size = new Size(106, 36);
             rdbHostil.TabIndex = 6;
             rdbHostil.Text = "Hostil";
             rdbHostil.UseVisualStyleBackColor = true;
-            rdbHostil.Click += rdbHostil_Click;
             // 
             // rdbNeutral
             // 
             rdbNeutral.AutoSize = true;
+            rdbNeutral.Enabled = false;
             rdbNeutral.Location = new Point(280, 37);
             rdbNeutral.Name = "rdbNeutral";
             rdbNeutral.Size = new Size(124, 36);
             rdbNeutral.TabIndex = 5;
             rdbNeutral.Text = "Neutral";
             rdbNeutral.UseVisualStyleBackColor = true;
-            rdbNeutral.Click += rdbNeutral_Click;
             // 
             // rdbPasivo
             // 
             rdbPasivo.AutoSize = true;
             rdbPasivo.Checked = true;
+            rdbPasivo.Enabled = false;
             rdbPasivo.Location = new Point(20, 37);
             rdbPasivo.Name = "rdbPasivo";
             rdbPasivo.Size = new Size(111, 36);
@@ -141,128 +119,17 @@
             rdbPasivo.TabStop = true;
             rdbPasivo.Text = "Pasivo";
             rdbPasivo.UseVisualStyleBackColor = true;
-            rdbPasivo.Click += rdbPasivo_Click;
             // 
-            // grbPasivo
+            // lblTitulo
             // 
-            grbPasivo.Controls.Add(imagenPasivo);
-            grbPasivo.Controls.Add(agImgPasivo);
-            grbPasivo.Controls.Add(label1);
-            grbPasivo.Controls.Add(txtRutaPasivo);
-            grbPasivo.Controls.Add(nudVida);
-            grbPasivo.Controls.Add(txtSpawn);
-            grbPasivo.Controls.Add(txtDrop);
-            grbPasivo.Controls.Add(txtNombre);
-            grbPasivo.Controls.Add(lblSpawn);
-            grbPasivo.Controls.Add(lblDrop);
-            grbPasivo.Controls.Add(lblVida);
-            grbPasivo.Controls.Add(lblNombre);
-            grbPasivo.Location = new Point(23, 226);
-            grbPasivo.Name = "grbPasivo";
-            grbPasivo.Size = new Size(551, 829);
-            grbPasivo.TabIndex = 4;
-            grbPasivo.TabStop = false;
-            // 
-            // imagenPasivo
-            // 
-            imagenPasivo.Location = new Point(15, 486);
-            imagenPasivo.Name = "imagenPasivo";
-            imagenPasivo.Size = new Size(288, 254);
-            imagenPasivo.SizeMode = PictureBoxSizeMode.StretchImage;
-            imagenPasivo.TabIndex = 9;
-            imagenPasivo.TabStop = false;
-            // 
-            // agImgPasivo
-            // 
-            agImgPasivo.Location = new Point(468, 757);
-            agImgPasivo.Name = "agImgPasivo";
-            agImgPasivo.Size = new Size(50, 46);
-            agImgPasivo.TabIndex = 12;
-            agImgPasivo.Text = "...";
-            agImgPasivo.UseVisualStyleBackColor = true;
-            agImgPasivo.Click += agImgPasivo_Click;
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Location = new Point(16, 424);
-            label1.Name = "label1";
-            label1.Size = new Size(94, 32);
-            label1.TabIndex = 8;
-            label1.Text = "Imagen";
-            // 
-            // txtRutaPasivo
-            // 
-            txtRutaPasivo.Location = new Point(16, 757);
-            txtRutaPasivo.Name = "txtRutaPasivo";
-            txtRutaPasivo.Size = new Size(501, 39);
-            txtRutaPasivo.TabIndex = 11;
-            // 
-            // nudVida
-            // 
-            nudVida.Location = new Point(16, 168);
-            nudVida.Minimum = new decimal(new int[] { 2, 0, 0, 0 });
-            nudVida.Name = "nudVida";
-            nudVida.Size = new Size(517, 39);
-            nudVida.TabIndex = 7;
-            nudVida.Value = new decimal(new int[] { 2, 0, 0, 0 });
-            // 
-            // txtSpawn
-            // 
-            txtSpawn.Location = new Point(15, 269);
-            txtSpawn.Name = "txtSpawn";
-            txtSpawn.Size = new Size(516, 39);
-            txtSpawn.TabIndex = 6;
-            // 
-            // txtDrop
-            // 
-            txtDrop.Location = new Point(16, 355);
-            txtDrop.Name = "txtDrop";
-            txtDrop.Size = new Size(516, 39);
-            txtDrop.TabIndex = 5;
-            // 
-            // txtNombre
-            // 
-            txtNombre.Location = new Point(16, 70);
-            txtNombre.Name = "txtNombre";
-            txtNombre.Size = new Size(516, 39);
-            txtNombre.TabIndex = 4;
-            // 
-            // lblSpawn
-            // 
-            lblSpawn.AutoSize = true;
-            lblSpawn.Location = new Point(16, 222);
-            lblSpawn.Name = "lblSpawn";
-            lblSpawn.Size = new Size(84, 32);
-            lblSpawn.TabIndex = 3;
-            lblSpawn.Text = "Spawn";
-            // 
-            // lblDrop
-            // 
-            lblDrop.AutoSize = true;
-            lblDrop.Location = new Point(16, 320);
-            lblDrop.Name = "lblDrop";
-            lblDrop.Size = new Size(67, 32);
-            lblDrop.TabIndex = 2;
-            lblDrop.Text = "Drop";
-            // 
-            // lblVida
-            // 
-            lblVida.AutoSize = true;
-            lblVida.Location = new Point(16, 133);
-            lblVida.Name = "lblVida";
-            lblVida.Size = new Size(61, 32);
-            lblVida.TabIndex = 1;
-            lblVida.Text = "Vida";
-            // 
-            // lblNombre
-            // 
-            lblNombre.AutoSize = true;
-            lblNombre.Location = new Point(16, 35);
-            lblNombre.Name = "lblNombre";
-            lblNombre.Size = new Size(102, 32);
-            lblNombre.TabIndex = 0;
-            lblNombre.Text = "Nombre";
+            lblTitulo.AutoSize = true;
+            lblTitulo.BackColor = Color.Transparent;
+            lblTitulo.Font = new Font("Minecrafter", 25.875F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblTitulo.Location = new Point(290, 25);
+            lblTitulo.Name = "lblTitulo";
+            lblTitulo.Size = new Size(611, 60);
+            lblTitulo.TabIndex = 4;
+            lblTitulo.Text = "Modificar mob";
             // 
             // grbHostil
             // 
@@ -282,10 +149,10 @@
             grbHostil.Controls.Add(label4);
             grbHostil.Controls.Add(label5);
             grbHostil.Controls.Add(label6);
-            grbHostil.Location = new Point(611, 226);
+            grbHostil.Location = new Point(628, 241);
             grbHostil.Name = "grbHostil";
             grbHostil.Size = new Size(551, 1019);
-            grbHostil.TabIndex = 10;
+            grbHostil.TabIndex = 12;
             grbHostil.TabStop = false;
             grbHostil.Visible = false;
             // 
@@ -297,7 +164,6 @@
             agImgHostil.TabIndex = 17;
             agImgHostil.Text = "...";
             agImgHostil.UseVisualStyleBackColor = true;
-            agImgHostil.Click += agImgHostil_Click;
             // 
             // txtRutaHostil
             // 
@@ -424,57 +290,167 @@
             label6.TabIndex = 0;
             label6.Text = "Nombre";
             // 
-            // btnCancelar
+            // grbPasivo
             // 
-            btnCancelar.Location = new Point(424, 1286);
-            btnCancelar.Name = "btnCancelar";
-            btnCancelar.Size = new Size(150, 46);
-            btnCancelar.TabIndex = 13;
-            btnCancelar.Text = "Cancelar";
-            btnCancelar.UseVisualStyleBackColor = true;
-            btnCancelar.Click += btnCancelar_Click;
+            grbPasivo.Controls.Add(imagenPasivo);
+            grbPasivo.Controls.Add(agImgPasivo);
+            grbPasivo.Controls.Add(label1);
+            grbPasivo.Controls.Add(txtRutaPasivo);
+            grbPasivo.Controls.Add(nudVida);
+            grbPasivo.Controls.Add(txtSpawn);
+            grbPasivo.Controls.Add(txtDrop);
+            grbPasivo.Controls.Add(txtNombre);
+            grbPasivo.Controls.Add(lblSpawn);
+            grbPasivo.Controls.Add(lblDrop);
+            grbPasivo.Controls.Add(lblVida);
+            grbPasivo.Controls.Add(lblNombre);
+            grbPasivo.Location = new Point(40, 241);
+            grbPasivo.Name = "grbPasivo";
+            grbPasivo.Size = new Size(551, 829);
+            grbPasivo.TabIndex = 11;
+            grbPasivo.TabStop = false;
             // 
-            // frmAgregar
+            // imagenPasivo
+            // 
+            imagenPasivo.Location = new Point(15, 486);
+            imagenPasivo.Name = "imagenPasivo";
+            imagenPasivo.Size = new Size(288, 254);
+            imagenPasivo.SizeMode = PictureBoxSizeMode.StretchImage;
+            imagenPasivo.TabIndex = 9;
+            imagenPasivo.TabStop = false;
+            // 
+            // agImgPasivo
+            // 
+            agImgPasivo.Location = new Point(468, 757);
+            agImgPasivo.Name = "agImgPasivo";
+            agImgPasivo.Size = new Size(50, 46);
+            agImgPasivo.TabIndex = 12;
+            agImgPasivo.Text = "...";
+            agImgPasivo.UseVisualStyleBackColor = true;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(16, 424);
+            label1.Name = "label1";
+            label1.Size = new Size(94, 32);
+            label1.TabIndex = 8;
+            label1.Text = "Imagen";
+            // 
+            // txtRutaPasivo
+            // 
+            txtRutaPasivo.Location = new Point(16, 757);
+            txtRutaPasivo.Name = "txtRutaPasivo";
+            txtRutaPasivo.Size = new Size(501, 39);
+            txtRutaPasivo.TabIndex = 11;
+            // 
+            // nudVida
+            // 
+            nudVida.Location = new Point(16, 168);
+            nudVida.Minimum = new decimal(new int[] { 2, 0, 0, 0 });
+            nudVida.Name = "nudVida";
+            nudVida.Size = new Size(517, 39);
+            nudVida.TabIndex = 7;
+            nudVida.Value = new decimal(new int[] { 2, 0, 0, 0 });
+            // 
+            // txtSpawn
+            // 
+            txtSpawn.Location = new Point(15, 269);
+            txtSpawn.Name = "txtSpawn";
+            txtSpawn.Size = new Size(516, 39);
+            txtSpawn.TabIndex = 6;
+            // 
+            // txtDrop
+            // 
+            txtDrop.Location = new Point(16, 355);
+            txtDrop.Name = "txtDrop";
+            txtDrop.Size = new Size(516, 39);
+            txtDrop.TabIndex = 5;
+            // 
+            // txtNombre
+            // 
+            txtNombre.Location = new Point(16, 70);
+            txtNombre.Name = "txtNombre";
+            txtNombre.Size = new Size(516, 39);
+            txtNombre.TabIndex = 4;
+            // 
+            // lblSpawn
+            // 
+            lblSpawn.AutoSize = true;
+            lblSpawn.Location = new Point(16, 222);
+            lblSpawn.Name = "lblSpawn";
+            lblSpawn.Size = new Size(84, 32);
+            lblSpawn.TabIndex = 3;
+            lblSpawn.Text = "Spawn";
+            // 
+            // lblDrop
+            // 
+            lblDrop.AutoSize = true;
+            lblDrop.Location = new Point(16, 320);
+            lblDrop.Name = "lblDrop";
+            lblDrop.Size = new Size(67, 32);
+            lblDrop.TabIndex = 2;
+            lblDrop.Text = "Drop";
+            // 
+            // lblVida
+            // 
+            lblVida.AutoSize = true;
+            lblVida.Location = new Point(16, 133);
+            lblVida.Name = "lblVida";
+            lblVida.Size = new Size(61, 32);
+            lblVida.TabIndex = 1;
+            lblVida.Text = "Vida";
+            // 
+            // lblNombre
+            // 
+            lblNombre.AutoSize = true;
+            lblNombre.Location = new Point(16, 35);
+            lblNombre.Name = "lblNombre";
+            lblNombre.Size = new Size(102, 32);
+            lblNombre.TabIndex = 0;
+            lblNombre.Text = "Nombre";
+            // 
+            // FrmModificar
             // 
             AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1329, 1371);
-            Controls.Add(btnCancelar);
+            ClientSize = new Size(1220, 1276);
             Controls.Add(grbHostil);
             Controls.Add(grbPasivo);
             Controls.Add(grbTipo);
-            Controls.Add(btnAgregar);
             Controls.Add(lblTitulo);
-            Name = "frmAgregar";
-            Text = "Agregar";
-            Activated += frmAgregar_Activated;
-            FormClosing += frmAgregar_FormClosing;
+            Name = "FrmModificar";
+            Text = "FrmModificar";
+            Activated += FrmModificar_Activated;
             grbTipo.ResumeLayout(false);
             grbTipo.PerformLayout();
-            grbPasivo.ResumeLayout(false);
-            grbPasivo.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)imagenPasivo).EndInit();
-            ((System.ComponentModel.ISupportInitialize)nudVida).EndInit();
             grbHostil.ResumeLayout(false);
             grbHostil.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)nudDaño).EndInit();
             ((System.ComponentModel.ISupportInitialize)imagenHostil).EndInit();
             ((System.ComponentModel.ISupportInitialize)nudVidaHostil).EndInit();
+            grbPasivo.ResumeLayout(false);
+            grbPasivo.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)imagenPasivo).EndInit();
+            ((System.ComponentModel.ISupportInitialize)nudVida).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
 
-        private Label lblTitulo;
-        private Button btnAgregar;
         private GroupBox grbTipo;
         private RadioButton rdbHostil;
         private RadioButton rdbNeutral;
         private RadioButton rdbPasivo;
-        private System.ComponentModel.BackgroundWorker backgroundWorker1;
-        private GroupBox grbPasivo;
+        private Label lblTitulo;
         private GroupBox grbHostil;
+        private Button agImgHostil;
+        private TextBox txtRutaHostil;
+        private ComboBox cmbAtaque;
+        private NumericUpDown nudDaño;
+        private Label lblAtaque;
+        private Label lblDaño;
         private PictureBox imagenHostil;
         private Label label2;
         private NumericUpDown nudVidaHostil;
@@ -485,8 +461,11 @@
         private Label label4;
         private Label label5;
         private Label label6;
+        private GroupBox grbPasivo;
         private PictureBox imagenPasivo;
+        private Button agImgPasivo;
         private Label label1;
+        private TextBox txtRutaPasivo;
         private NumericUpDown nudVida;
         private TextBox txtSpawn;
         private TextBox txtDrop;
@@ -495,14 +474,5 @@
         private Label lblDrop;
         private Label lblVida;
         private Label lblNombre;
-        private TextBox txtRutaPasivo;
-        private Button agImgPasivo;
-        private NumericUpDown nudDaño;
-        private Label lblAtaque;
-        private Label lblDaño;
-        private ComboBox cmbAtaque;
-        private Button btnCancelar;
-        private Button agImgHostil;
-        private TextBox txtRutaHostil;
     }
 }

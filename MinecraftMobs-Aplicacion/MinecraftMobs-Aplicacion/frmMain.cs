@@ -6,11 +6,13 @@ namespace MinecraftMobs_Aplicacion
     public partial class frmMain : Form
     {
         frmAgregar formAgregar; //Atributo para una instancia de frmAgregar
+        FrmModificar formModificar;
         public List<MobsPasivos> listaMobs = new List<MobsPasivos>();
         public frmMain()
         {
             InitializeComponent();
             formAgregar = new frmAgregar(this); //Crea el formulario si no esta creado. El NEW asigna un especio en memoria
+            formModificar = new FrmModificar(this);
         }
         public void ActualizarListaMobs()
         {
@@ -179,17 +181,19 @@ namespace MinecraftMobs_Aplicacion
 
         private void btnModificar_Click(object sender, EventArgs e)
         {
-            string nombreSeleccionado = cmbMob.SelectedItem.ToString();
-            MobsPasivos mobSeleccionado = listaMobs.Find(m => m.Nombre == nombreSeleccionado);
-
-            // 4. Abrimos el formulario de modificación
-            formAgregar.EsModificacion = true;
-            formAgregar.MobAEditar = mobSeleccionado;
-            formAgregar.Show(); // No uses ShowDialog porque vos lo ocultás, y ShowDialog lo bloquea
-            this.Hide(); // Ocultás el frmMain
-
-            // 5. Una vez que se cierra, actualizamos el combo y la lista
-            ActualizarComboBox();
+            MobsPasivos mob;
+            foreach (MobsPasivos m in listaMobs)
+            {
+                if(m.Nombre== cmbMob.Text)
+                {
+                    mob = m;
+                    formModificar.MostrarModificar(mob);
+                    break;
+                }
+            }
+           
+            this.Hide();
+            //formModificar.mobAEditar ombreSeleccionado = cmbMob.SelectedItem.ToString();
         }
     }
 }
