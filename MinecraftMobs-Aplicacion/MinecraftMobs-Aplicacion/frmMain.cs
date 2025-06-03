@@ -141,7 +141,10 @@ namespace MinecraftMobs_Aplicacion
             lblSpawn.Text = mob.Spawn;
             lblVida.Text = mob.PuntosDeSalud.ToString();
             lblDrop.Text = mob.ItemSoltado.ToString();
-            picbImagen.Image = Image.FromFile(mob.Apariencia);
+            if (File.Exists(mob.Apariencia))
+                picbImagen.Image = Image.FromFile(mob.Apariencia.ToString());
+            else
+                picbImagen.Image = null;
 
         }
 

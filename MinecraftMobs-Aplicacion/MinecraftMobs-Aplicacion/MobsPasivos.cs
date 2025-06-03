@@ -47,5 +47,18 @@ namespace MinecraftMobs_Aplicacion
             comando.ExecuteNonQuery();
             conexion.Close();
         }
+        public void ModificarPasivoBaseDeDatos()
+        {
+            string strDeConexion = "Data Source = Minecraft.sqlite";
+            SqliteConnection conexion = new SqliteConnection(strDeConexion);   //puntero
+
+            conexion.Open();
+
+            SqliteCommand comando = new SqliteCommand();
+            comando = new SqliteCommand($"UPDATE INTO Mobs (Nombre, PuntosDeSalud, Tipo, Spawn, ItemSoltado, Apariencia) " +
+            $"VALUES ('{nombre}', '{puntosDeSalud}', 'Pasivo', '{spawn}', '{itemSoltado}', '{apariencia}')", conexion); //consulta
+            comando.ExecuteNonQuery();
+            conexion.Close();
+        }
     }
 }
