@@ -54,6 +54,8 @@ namespace MinecraftMobs_Aplicacion
                 nudDaño.Value = mobActivo.Danio;
                 cmbAtaque.Text = mobActivo.TipoDeAtaque;
 
+                label7.Text = mobActivo.Id.ToString(); // Mostrar el ID del mob activo
+
                 if (File.Exists(mobActivo.Apariencia))
                     imagenHostil.Image = Image.FromFile(mobActivo.Apariencia);
                 else
@@ -74,6 +76,8 @@ namespace MinecraftMobs_Aplicacion
                 nudVida.Value = mobPasivo.PuntosDeSalud;
                 txtSpawn.Text = mobPasivo.Spawn;
                 txtDrop.Text = mobPasivo.ItemSoltado;
+
+                label7.Text = mobPasivo.Id.ToString(); // Mostrar el ID del mob pasivo
 
                 if (File.Exists(mobPasivo.Apariencia))
                     imagenPasivo.Image = Image.FromFile(mobPasivo.Apariencia);

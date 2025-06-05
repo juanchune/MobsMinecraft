@@ -16,6 +16,7 @@ namespace MinecraftMobs_Aplicacion
         }
         public void ActualizarListaMobs()
         {
+            listaMobs.Clear(); //Limpia la lista de mobs antes de agregar nuevos
             string strDeConexion = "Data Source = Minecraft.sqlite";
             SqliteConnection conexion = new SqliteConnection(strDeConexion);   //puntero
 
@@ -37,6 +38,7 @@ namespace MinecraftMobs_Aplicacion
                 {
                     mob = new MobsActivos(int.Parse((lector["Daño"].ToString())), lector["TipoDeAtaque"].ToString(), lector["Tipo"].ToString());
                 }
+                mob.Id = int.Parse((lector["idMob"].ToString())); //Si se quiere usar el ID, descomentar esta linea
                 mob.Nombre = lector["Nombre"].ToString();
                 mob.Apariencia = lector["Apariencia"].ToString();
                 mob.PuntosDeSalud = int.Parse((lector["PuntosDeSalud"].ToString()));
@@ -137,6 +139,7 @@ namespace MinecraftMobs_Aplicacion
                 grbHostil.Visible = false;
                 lblTipo.Text = "Pasivo";
             }
+            label1.Text = mob.Id.ToString();
             lblNombre.Text = mob.Nombre;
             lblSpawn.Text = mob.Spawn;
             lblVida.Text = mob.PuntosDeSalud.ToString();

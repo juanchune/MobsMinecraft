@@ -65,6 +65,7 @@
             lblNombre = new Label();
             btnCancelar = new Button();
             btnModificar = new Button();
+            label7 = new Label();
             grbTipo.SuspendLayout();
             grbHostil.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)nudDaño).BeginInit();
@@ -474,11 +475,22 @@
             btnModificar.UseVisualStyleBackColor = true;
             btnModificar.Click += btnModificar_Click;
             // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Location = new Point(226, 741);
+            label7.Margin = new Padding(2, 0, 2, 0);
+            label7.Name = "label7";
+            label7.Size = new Size(0, 20);
+            label7.TabIndex = 16;
+            label7.Visible = false;
+            // 
             // FrmModificar
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(751, 1053);
+            Controls.Add(label7);
             Controls.Add(btnCancelar);
             Controls.Add(btnModificar);
             Controls.Add(grbHostil);
@@ -488,7 +500,6 @@
             Margin = new Padding(2);
             Name = "FrmModificar";
             Text = "FrmModificar";
-            Activated += FrmModificar_Activated;
             FormClosing += FrmModificar_FormClosing;
             grbTipo.ResumeLayout(false);
             grbTipo.PerformLayout();
@@ -544,5 +555,6 @@
         private Label lblNombre;
         private Button btnCancelar;
         private Button btnModificar;
+        private Label label7;
     }
 }
