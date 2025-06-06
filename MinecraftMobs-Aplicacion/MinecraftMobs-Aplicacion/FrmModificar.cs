@@ -92,6 +92,7 @@ namespace MinecraftMobs_Aplicacion
             if (rdbPasivo.Checked)
             {
                 MobsPasivos nuevoMob = new MobsPasivos();
+                nuevoMob.Id = int.Parse(label7.Text); //Convierte en entero 
                 nuevoMob.Nombre = txtNombre.Text;
                 nuevoMob.PuntosDeSalud = (int)nudVida.Value;
                 nuevoMob.Spawn = txtSpawn.Text;
@@ -99,12 +100,13 @@ namespace MinecraftMobs_Aplicacion
                 nuevoMob.Apariencia = txtRutaPasivo.Text; //Asignamos la imagen del pasivo
 
                 nuevoMob.ModificarPasivoBaseDeDatos();
-                formularioMain.listaMobs.Add(nuevoMob); //Agrega el nuevo mob a la lista de mobs en frmMain
+                formularioMain.ActualizarListaMobs();
             }
             else
             {
                 if (rdbHostil.Checked) { tipo = "Hostil"; } else { tipo = "Neutral"; }
                 MobsActivos nuevoMob = new MobsActivos((int)nudDaño.Value, cmbAtaque.Text, tipo);
+                nuevoMob.Id = int.Parse(label7.Text); //Convierte en entero 
                 nuevoMob.Nombre = txtNombreHostil.Text;
                 nuevoMob.PuntosDeSalud = (int)nudVidaHostil.Value;
                 nuevoMob.Spawn = txtSpawnHostil.Text;
@@ -112,7 +114,7 @@ namespace MinecraftMobs_Aplicacion
                 nuevoMob.Apariencia = txtRutaHostil.Text; //Asignamos la imagen del hostil
 
                 nuevoMob.ModificarActivoBaseDeDatos();
-                formularioMain.listaMobs.Add(nuevoMob); //Agrega el nuevo mob a la lista de mobs en frmMain
+                formularioMain.ActualizarListaMobs();
 
             }
             this.Hide();
