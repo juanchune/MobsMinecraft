@@ -3,7 +3,7 @@ using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace MinecraftMobs_Aplicacion
 {
-    public partial class frmMain : Form
+    public partial class frmMain : Form //Constructor 
     {
         frmAgregar formAgregar; //Atributo para una instancia de frmAgregar
         FrmModificar formModificar;
@@ -22,14 +22,13 @@ namespace MinecraftMobs_Aplicacion
 
             conexion.Open();
 
-            SqliteCommand comando = new SqliteCommand();
+            SqliteCommand comando = new SqliteCommand(); //Variable de tipo SQL contiene string de consulta y la conexion
             comando = new SqliteCommand("SELECT * FROM Mobs ORDER BY Nombre ASC", conexion); //consulta
             SqliteDataReader lector = comando.ExecuteReader(); //toma el comando anterior y lo convierte en legible para c#
 
-            //MobsActivos mob = new MobsActivos(ERROR); //creamos una variable de tipo MobsActivos para almacenar los datos de cada mob
             while (lector.Read()) //el lector para muchas filas para cuando encuentra NULL, por eso es viable con while
             {
-                MobsPasivos mob;
+                MobsPasivos mob; //Crea una instancia vacia de mob pasivo
                 if (lector["Tipo"].ToString() == "Pasivo")
                 {
                     mob = new MobsPasivos();
@@ -99,19 +98,6 @@ namespace MinecraftMobs_Aplicacion
 
         private void cmbMob_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //if (listaMobs[cmbMob.SelectedIndex] is MobsPasivos)
-            //{
-            //    MobsPasivos mob = listaMobs[cmbMob.SelectedIndex];
-            //    lblNombre.Text = mob.Nombre;
-            //}
-            //else
-            //{
-            //    if(listaMobs[cmbMob.SelectedIndex] is MobsActivos)
-            //    {
-            //        MobsActivos mob = (MobsActivos)listaMobs[cmbMob.SelectedIndex];
-            //    }
-            //}
-
             string nomMob = cmbMob.Text;
             MobsPasivos mob = null;
             foreach (MobsPasivos m in listaMobs)

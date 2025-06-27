@@ -60,19 +60,17 @@
             lblTitulo.AutoSize = true;
             lblTitulo.BackColor = Color.Transparent;
             lblTitulo.Font = new Font("Minecrafter", 25.875F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblTitulo.Location = new Point(12, 19);
-            lblTitulo.Margin = new Padding(2, 0, 2, 0);
+            lblTitulo.Location = new Point(20, 30);
             lblTitulo.Name = "lblTitulo";
-            lblTitulo.Size = new Size(511, 38);
+            lblTitulo.Size = new Size(804, 60);
             lblTitulo.TabIndex = 0;
             lblTitulo.Text = "Mobs de Minecraft";
             // 
             // btnAgregar
             // 
-            btnAgregar.Location = new Point(10, 24);
-            btnAgregar.Margin = new Padding(2);
+            btnAgregar.Location = new Point(16, 38);
             btnAgregar.Name = "btnAgregar";
-            btnAgregar.Size = new Size(92, 29);
+            btnAgregar.Size = new Size(150, 46);
             btnAgregar.TabIndex = 1;
             btnAgregar.Text = "Agregar";
             btnAgregar.UseVisualStyleBackColor = true;
@@ -80,10 +78,9 @@
             // 
             // btnEliminar
             // 
-            btnEliminar.Location = new Point(138, 24);
-            btnEliminar.Margin = new Padding(2);
+            btnEliminar.Location = new Point(224, 38);
             btnEliminar.Name = "btnEliminar";
-            btnEliminar.Size = new Size(145, 29);
+            btnEliminar.Size = new Size(236, 46);
             btnEliminar.TabIndex = 2;
             btnEliminar.Text = "Eliminar";
             btnEliminar.UseVisualStyleBackColor = true;
@@ -92,10 +89,9 @@
             // cmbMob
             // 
             cmbMob.FormattingEnabled = true;
-            cmbMob.Location = new Point(17, 549);
-            cmbMob.Margin = new Padding(2);
+            cmbMob.Location = new Point(28, 878);
             cmbMob.Name = "cmbMob";
-            cmbMob.Size = new Size(216, 28);
+            cmbMob.Size = new Size(348, 40);
             cmbMob.TabIndex = 3;
             cmbMob.SelectedIndexChanged += cmbMob_SelectedIndexChanged;
             // 
@@ -103,19 +99,17 @@
             // 
             lblNombre.AutoSize = true;
             lblNombre.Font = new Font("Minecrafter", 16.125F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblNombre.Location = new Point(17, 67);
-            lblNombre.Margin = new Padding(2, 0, 2, 0);
+            lblNombre.Location = new Point(28, 107);
             lblNombre.Name = "lblNombre";
-            lblNombre.Size = new Size(270, 24);
+            lblNombre.Size = new Size(437, 37);
             lblNombre.TabIndex = 4;
             lblNombre.Text = "Nombre del mob";
             // 
             // picbImagen
             // 
-            picbImagen.Location = new Point(12, 98);
-            picbImagen.Margin = new Padding(2);
+            picbImagen.Location = new Point(20, 157);
             picbImagen.Name = "picbImagen";
-            picbImagen.Size = new Size(276, 259);
+            picbImagen.Size = new Size(448, 414);
             picbImagen.TabIndex = 5;
             picbImagen.TabStop = false;
             // 
@@ -123,10 +117,9 @@
             // 
             lblVidaE.AutoSize = true;
             lblVidaE.Font = new Font("Jersey 10", 16.1249981F);
-            lblVidaE.Location = new Point(12, 382);
-            lblVidaE.Margin = new Padding(2, 0, 2, 0);
+            lblVidaE.Location = new Point(20, 611);
             lblVidaE.Name = "lblVidaE";
-            lblVidaE.Size = new Size(57, 29);
+            lblVidaE.Size = new Size(88, 47);
             lblVidaE.TabIndex = 6;
             lblVidaE.Text = "Vida:";
             // 
@@ -134,10 +127,9 @@
             // 
             lblVida.AutoSize = true;
             lblVida.Font = new Font("Segoe UI", 10.125F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblVida.Location = new Point(70, 385);
-            lblVida.Margin = new Padding(2, 0, 2, 0);
+            lblVida.Location = new Point(114, 616);
             lblVida.Name = "lblVida";
-            lblVida.Size = new Size(110, 23);
+            lblVida.Size = new Size(173, 37);
             lblVida.TabIndex = 7;
             lblVida.Text = "10 corazones";
             // 
@@ -145,10 +137,9 @@
             // 
             lblDrop.AutoSize = true;
             lblDrop.Font = new Font("Segoe UI", 10.125F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblDrop.Location = new Point(97, 462);
-            lblDrop.Margin = new Padding(2, 0, 2, 0);
+            lblDrop.Location = new Point(158, 739);
             lblDrop.Name = "lblDrop";
-            lblDrop.Size = new Size(46, 23);
+            lblDrop.Size = new Size(73, 37);
             lblDrop.TabIndex = 8;
             lblDrop.Text = "Lana";
             // 
@@ -156,10 +147,9 @@
             // 
             lblDropE.AutoSize = true;
             lblDropE.Font = new Font("Jersey 10", 16.1249981F);
-            lblDropE.Location = new Point(12, 456);
-            lblDropE.Margin = new Padding(2, 0, 2, 0);
+            lblDropE.Location = new Point(20, 730);
             lblDropE.Name = "lblDropE";
-            lblDropE.Size = new Size(63, 29);
+            lblDropE.Size = new Size(97, 47);
             lblDropE.TabIndex = 9;
             lblDropE.Text = "Drop:";
             // 
@@ -167,10 +157,9 @@
             // 
             lblSpawnE.AutoSize = true;
             lblSpawnE.Font = new Font("Jersey 10", 16.1249981F);
-            lblSpawnE.Location = new Point(17, 495);
-            lblSpawnE.Margin = new Padding(2, 0, 2, 0);
+            lblSpawnE.Location = new Point(28, 792);
             lblSpawnE.Name = "lblSpawnE";
-            lblSpawnE.Size = new Size(81, 29);
+            lblSpawnE.Size = new Size(124, 47);
             lblSpawnE.TabIndex = 10;
             lblSpawnE.Text = "Spawn:";
             // 
@@ -178,10 +167,9 @@
             // 
             lblSpawn.AutoSize = true;
             lblSpawn.Font = new Font("Segoe UI", 10.125F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblSpawn.Location = new Point(97, 501);
-            lblSpawn.Margin = new Padding(2, 0, 2, 0);
+            lblSpawn.Location = new Point(158, 802);
             lblSpawn.Name = "lblSpawn";
-            lblSpawn.Size = new Size(130, 23);
+            lblSpawn.Size = new Size(202, 37);
             lblSpawn.TabIndex = 11;
             lblSpawn.Text = "Cualquier zona ";
             // 
@@ -191,11 +179,9 @@
             grbHostil.Controls.Add(lblDanioE);
             grbHostil.Controls.Add(lblAtaque);
             grbHostil.Controls.Add(lblAtaqueE);
-            grbHostil.Location = new Point(225, 366);
-            grbHostil.Margin = new Padding(2);
+            grbHostil.Location = new Point(366, 586);
             grbHostil.Name = "grbHostil";
-            grbHostil.Padding = new Padding(2);
-            grbHostil.Size = new Size(298, 143);
+            grbHostil.Size = new Size(484, 229);
             grbHostil.TabIndex = 12;
             grbHostil.TabStop = false;
             // 
@@ -203,10 +189,9 @@
             // 
             lblDanio.AutoSize = true;
             lblDanio.Font = new Font("Segoe UI", 10.125F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblDanio.Location = new Point(83, 60);
-            lblDanio.Margin = new Padding(2, 0, 2, 0);
+            lblDanio.Location = new Point(135, 96);
             lblDanio.Name = "lblDanio";
-            lblDanio.Size = new Size(101, 23);
+            lblDanio.Size = new Size(158, 37);
             lblDanio.TabIndex = 10;
             lblDanio.Text = "2 corazones";
             // 
@@ -214,10 +199,9 @@
             // 
             lblDanioE.AutoSize = true;
             lblDanioE.Font = new Font("Jersey 10", 16.1249981F);
-            lblDanioE.Location = new Point(4, 60);
-            lblDanioE.Margin = new Padding(2, 0, 2, 0);
+            lblDanioE.Location = new Point(6, 96);
             lblDanioE.Name = "lblDanioE";
-            lblDanioE.Size = new Size(65, 29);
+            lblDanioE.Size = new Size(99, 47);
             lblDanioE.TabIndex = 9;
             lblDanioE.Text = "Daño:";
             // 
@@ -225,10 +209,9 @@
             // 
             lblAtaque.AutoSize = true;
             lblAtaque.Font = new Font("Segoe UI", 10.125F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblAtaque.Location = new Point(88, 18);
-            lblAtaque.Margin = new Padding(2, 0, 2, 0);
+            lblAtaque.Location = new Point(143, 29);
             lblAtaque.Name = "lblAtaque";
-            lblAtaque.Size = new Size(138, 23);
+            lblAtaque.Size = new Size(214, 37);
             lblAtaque.TabIndex = 8;
             lblAtaque.Text = "Cuerpo a cuerpo";
             // 
@@ -236,10 +219,9 @@
             // 
             lblAtaqueE.AutoSize = true;
             lblAtaqueE.Font = new Font("Jersey 10", 16.1249981F);
-            lblAtaqueE.Location = new Point(4, 14);
-            lblAtaqueE.Margin = new Padding(2, 0, 2, 0);
+            lblAtaqueE.Location = new Point(6, 22);
             lblAtaqueE.Name = "lblAtaqueE";
-            lblAtaqueE.Size = new Size(86, 29);
+            lblAtaqueE.Size = new Size(131, 47);
             lblAtaqueE.TabIndex = 7;
             lblAtaqueE.Text = "Ataque:";
             // 
@@ -248,20 +230,17 @@
             grbControles.Controls.Add(btnModificar);
             grbControles.Controls.Add(btnEliminar);
             grbControles.Controls.Add(btnAgregar);
-            grbControles.Location = new Point(7, 578);
-            grbControles.Margin = new Padding(2);
+            grbControles.Location = new Point(11, 925);
             grbControles.Name = "grbControles";
-            grbControles.Padding = new Padding(2);
-            grbControles.Size = new Size(513, 70);
+            grbControles.Size = new Size(834, 112);
             grbControles.TabIndex = 13;
             grbControles.TabStop = false;
             // 
             // btnModificar
             // 
-            btnModificar.Location = new Point(306, 24);
-            btnModificar.Margin = new Padding(2);
+            btnModificar.Location = new Point(497, 38);
             btnModificar.Name = "btnModificar";
-            btnModificar.Size = new Size(145, 29);
+            btnModificar.Size = new Size(236, 46);
             btnModificar.TabIndex = 3;
             btnModificar.Text = "Modificar";
             btnModificar.UseVisualStyleBackColor = true;
@@ -271,10 +250,9 @@
             // 
             lblTipoE.AutoSize = true;
             lblTipoE.Font = new Font("Jersey 10", 16.1249981F);
-            lblTipoE.Location = new Point(12, 418);
-            lblTipoE.Margin = new Padding(2, 0, 2, 0);
+            lblTipoE.Location = new Point(20, 669);
             lblTipoE.Name = "lblTipoE";
-            lblTipoE.Size = new Size(55, 29);
+            lblTipoE.Size = new Size(86, 47);
             lblTipoE.TabIndex = 14;
             lblTipoE.Text = "Tipo:";
             // 
@@ -282,10 +260,9 @@
             // 
             lblTipo.AutoSize = true;
             lblTipo.Font = new Font("Segoe UI", 10.125F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblTipo.Location = new Point(76, 421);
-            lblTipo.Margin = new Padding(2, 0, 2, 0);
+            lblTipo.Location = new Point(124, 674);
             lblTipo.Name = "lblTipo";
-            lblTipo.Size = new Size(67, 23);
+            lblTipo.Size = new Size(107, 37);
             lblTipo.TabIndex = 15;
             lblTipo.Text = "Pacifico";
             // 
@@ -293,18 +270,17 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 10.125F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label1.Location = new Point(308, 315);
-            label1.Margin = new Padding(2, 0, 2, 0);
+            label1.Location = new Point(500, 504);
             label1.Name = "label1";
-            label1.Size = new Size(0, 23);
+            label1.Size = new Size(0, 37);
             label1.TabIndex = 16;
             label1.Visible = false;
             // 
             // frmMain
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(521, 659);
+            ClientSize = new Size(847, 1054);
             Controls.Add(label1);
             Controls.Add(lblTipo);
             Controls.Add(lblTipoE);
@@ -320,7 +296,6 @@
             Controls.Add(picbImagen);
             Controls.Add(lblNombre);
             Controls.Add(lblTitulo);
-            Margin = new Padding(2);
             Name = "frmMain";
             Text = "Inicio";
             Activated += frmMain_Activated;
